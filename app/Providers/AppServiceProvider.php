@@ -25,13 +25,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        URL::forceScheme('https');
         //Carbon Tanggal Bahasa Indonesia
-Carbon::setLocale('id');
+        Carbon::setLocale('id');
 
-//Custom Blade Untuk Rupiah
-Blade::directive('konversi', function ($jumlah) {
-    return "<?php echo number_format($jumlah,2,',','.'); ?>";
-});
+        //Custom Blade Untuk Rupiah
+        Blade::directive('konversi', function ($jumlah) {
+            return "<?php echo number_format($jumlah,2,',','.'); ?>";
+        });
 
     }
 }
